@@ -32,7 +32,7 @@ export default function ProductsPage() {
   const cart = useCart()
   const wishlist = useWishlist()
   const { toast } = useToast()
-  const categories = ["All", ...new Set(products.map(product => product.category))]
+  const categories = ["All", ...[...new Set(products.map(product => product.category))]];
 
   const filteredProducts = products
     .filter(product => selectedCategory === "All" || product.category === selectedCategory)
@@ -101,7 +101,7 @@ export default function ProductsPage() {
             </Badge>
           ))}
         </div>
-        
+
         <Select value={sortBy} onValueChange={setSortBy}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Sort by" />
